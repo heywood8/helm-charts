@@ -1,8 +1,8 @@
-{{- if .Values.dbVolume.persistentVolumeClaim.create -}}
+{{- if .Values.persistentVolumeClaim.create -}}
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: {{ .Values.dbVolume.persistentVolumeClaim.name }}
+  name: {{ .Values.persistentVolumeClaim.name }}
 spec:
   storageClassName: {{ .Values.persistentVolumeClaim.storageClassName }}
   accessModes:
