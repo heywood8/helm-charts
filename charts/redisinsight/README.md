@@ -5,15 +5,15 @@ Helm's [documentation](https://helm.sh/docs) to get started.
 
 Once Helm has been set up correctly, add the repo as follows:
 
-  helm repo add hw8 https://heywood8.github.io/helm-charts
+    helm repo add heywood8 https://heywood8.github.io/helm-charts
 
 If you had already added this repo earlier, run `helm repo update` to retrieve
 the latest versions of the packages.  You can then run `helm search repo
-hw8` to see the charts.
+heywood8` to see the charts.
 
 To install the redisinsight chart:
 
-    helm install redisinsight hw8/redisinsight
+    helm install redisinsight heywood8/redisinsight
 
 To uninstall the chart:
 
