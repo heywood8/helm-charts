@@ -24,3 +24,8 @@ version: 0.3.0
 appVersion: "1.14.0"
 
 icon: https://avatars.githubusercontent.com/u/87389211
+
+maintainers:
+  - name: Nikita Lopatin
+    email: lopatinik@yandex.ru
+    url: https://github.com/heywood8
