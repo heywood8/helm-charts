@@ -1,13 +1,13 @@
-{{- if .Values.dbVolume.persistentVolumeClaim -}}
+{{- if .Values.persistentVolumeClaim.create -}}
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: {{ .Values.dbVolume.persistentVolumeClaim.claimName }}
+  name: {{ .Values.persistentVolumeClaim.name }}
 spec:
-  storageClassName: {{ .Values.pvc.storageClassName }}
+  storageClassName: {{ .Values.persistentVolumeClaim.storageClassName }}
   accessModes:
-    - {{ .Values.pvc.accessMode }}
+    - {{ .Values.persistentVolumeClaim.accessMode }}
   resources:
     requests:
-      storage: {{ .Values.pvc.storage }}
+      storage: {{ .Values.persistentVolumeClaim.storage }}
 {{- end }}

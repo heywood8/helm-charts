@@ -78,5 +78,9 @@ affinity: {}
 
 trustedOrigins: ''
 
-dbVolume:
-  emptyDir: {}
+persistentVolumeClaim:
+  create: false
+  name: redisinsight-db
+  accessMode: ReadWriteOnce
+  storageClassName: csi-rbd-sc
+  storage: 64Mi
