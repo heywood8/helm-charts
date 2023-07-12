@@ -5,10 +5,10 @@
 replicaCount: 1
 
 image:
-  repository: redis/redis-stack
+  repository: redislabs/redisinsight
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: 7.0.6-RC9
+  tag: 1.14.0
 
 imagePullSecrets: []
 nameOverride: ""
