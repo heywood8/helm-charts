@@ -35,7 +35,6 @@ spec:
 {{ else }}
           emptyDir: {}
 {{ end }}
-          {{- toYaml .Values.dbVolume | nindent 10 }}
       containers:
         - env:
             - name: RILOGLEVEL
