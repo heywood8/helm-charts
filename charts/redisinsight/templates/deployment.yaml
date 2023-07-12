@@ -29,7 +29,12 @@ spec:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       volumes:
         - name: redisinsight
-          {{- toYaml .Values.dbVolume | nindent 10 }}
+{{ if .Values.persistentVolumeClaim.create }}
+          persistentVolumeClaim:
+            claimName: {{ .Values.persistentVolumeClaim.name }}
+{{ else }}
+          emptyDir: {}
+{{ end }}
       containers:
         - env:
             - name: RILOGLEVEL
