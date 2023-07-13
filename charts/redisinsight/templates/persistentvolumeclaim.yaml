@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: {{ .Values.persistentVolumeClaim.name }}
+  name: {{ include "redisinsight-chart.fullname" . }}-data
 spec:
   storageClassName: {{ .Values.persistentVolumeClaim.storageClassName }}
   accessModes:

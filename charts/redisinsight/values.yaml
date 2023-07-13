@@ -5,14 +5,16 @@
 replicaCount: 1
 
 image:
-  repository: redislabs/redisinsight
+  repository: heywood8/redisinsight
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: 1.14.0
+  tag: 2.28.0
 
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
+
+updateStrategy: Recreate
 
 serviceAccount:
   # Specifies whether a service account should be created
@@ -32,15 +34,17 @@ podSecurityContext:
 
 securityContext:
   capabilities:
-    drop:
-    - ALL
+    add:
+    - IPC_LOCK
+  #   drop:
+  #   - ALL
   # readOnlyRootFilesystem: true
   runAsNonRoot: true
   runAsUser: 1000
 
 service:
   type: ClusterIP
-  port: 8001
+  port: 5000
 
 ingress:
   enabled: false
@@ -58,10 +62,10 @@ ingress:
 resources:
 
   limits:
-    memory: 200Mi
+    memory: 300Mi
   requests:
     cpu: 1m
-    memory: 128Mi
+    memory: 200Mi
 
 autoscaling:
   enabled: false
@@ -80,7 +84,22 @@ trustedOrigins: ''
 
 persistentVolumeClaim:
   create: false
-  name: redisinsight-db
   accessMode: ReadWriteOnce
-  storageClassName: csi-rbd-sc
+  storageClassName: ''
   storage: 64Mi
+
+volumeMount:
+  mountPath: /redisinsight/
+
+livenessProbe:
+  tcpSocket:
+    port: http
+  periodSeconds: 10
+  failureThreshold: 2
+
+readinessProbe:
+  tcpSocket:
+    port: http
+  initialDelaySeconds: 15
+  periodSeconds: 10
+  failureThreshold: 2
