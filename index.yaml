@@ -1,6 +1,26 @@
 apiVersion: v1
 entries:
   redisinsight:
+  - annotations:
+      artifacthub.io/changes: |
+        - This is the first version with Changelog
+        - Removed HPA as it is not fully tested
+        - Set default tag version to none -> default now is chart appVersion
+        - Added some comments and reorderings to default values
+    apiVersion: v2
+    appVersion: 2.28.0
+    created: "2023-07-13T14:19:13.917373807Z"
+    description: A Redisinsight Helm chart for kubernetes
+    digest: 291c14596a94598c25ec5bf19ba0d2660e31ec749a5620d2687febb053bcc8e7
+    icon: https://avatars.githubusercontent.com/u/87389211
+    maintainers:
+    - email: lopatinik@yandex.ru
+      name: heywood8
+    name: redisinsight
+    type: application
+    urls:
+    - https://github.com/heywood8/helm-charts/releases/download/redisinsight-0.4.1/redisinsight-0.4.1.tgz
+    version: 0.4.1
   - apiVersion: v2
     appVersion: 2.28.0
     created: "2023-07-13T13:21:59.293063835Z"
@@ -54,4 +74,4 @@ entries:
     urls:
     - https://github.com/heywood8/helm-charts/releases/download/redisinsight-0.2.1/redisinsight-0.2.1.tgz
     version: 0.2.1
-generated: "2023-07-13T13:21:59.293077836Z"
+generated: "2023-07-13T14:19:13.917389508Z"
