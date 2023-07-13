@@ -2,6 +2,20 @@ apiVersion: v1
 entries:
   redisinsight:
   - apiVersion: v2
+    appVersion: 2.28.0
+    created: "2023-07-13T13:21:59.293063835Z"
+    description: A Redisinsight Helm chart for kubernetes
+    digest: 2b66deead02cbbf0aec19dff2c399a3fce001b89e65f2f1e3575e913d35f3341
+    icon: https://avatars.githubusercontent.com/u/87389211
+    maintainers:
+    - email: lopatinik@yandex.ru
+      name: heywood8
+    name: redisinsight
+    type: application
+    urls:
+    - https://github.com/heywood8/helm-charts/releases/download/redisinsight-0.4.0/redisinsight-0.4.0.tgz
+    version: 0.4.0
+  - apiVersion: v2
     appVersion: 1.14.0
     created: "2023-07-12T14:19:04.615526125Z"
     description: A Redisinsight Helm chart for kubernetes
@@ -40,4 +54,4 @@ entries:
     urls:
     - https://github.com/heywood8/helm-charts/releases/download/redisinsight-0.2.1/redisinsight-0.2.1.tgz
     version: 0.2.1
-generated: "2023-07-12T14:19:04.615543926Z"
+generated: "2023-07-13T13:21:59.293077836Z"
