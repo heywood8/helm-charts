@@ -3,6 +3,23 @@ entries:
   redisinsight:
   - annotations:
       artifacthub.io/changes: |
+        - Added another pathType support for ingress
+    apiVersion: v2
+    appVersion: 2.28.0
+    created: "2023-07-19T10:59:54.080655009Z"
+    description: A Redisinsight Helm chart for kubernetes
+    digest: 22b932b353bc3cd2f6eb3f661ba21aafafdd99c05051366f21ea8340f47afad9
+    icon: https://avatars.githubusercontent.com/u/87389211
+    maintainers:
+    - email: lopatinik@yandex.ru
+      name: heywood8
+    name: redisinsight
+    type: application
+    urls:
+    - https://github.com/heywood8/helm-charts/releases/download/redisinsight-0.4.4/redisinsight-0.4.4.tgz
+    version: 0.4.4
+  - annotations:
+      artifacthub.io/changes: |
         - Fixed "nil pointer evaluating interface {}.enabled" in deployment template
     apiVersion: v2
     appVersion: 2.28.0
@@ -91,4 +108,4 @@ entries:
     urls:
     - https://github.com/heywood8/helm-charts/releases/download/redisinsight-0.2.1/redisinsight-0.2.1.tgz
     version: 0.2.1
-generated: "2023-07-19T10:29:29.299466006Z"
+generated: "2023-07-19T10:59:54.080958707Z"
