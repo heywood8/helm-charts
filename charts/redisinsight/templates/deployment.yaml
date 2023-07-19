@@ -5,9 +5,7 @@ metadata:
   labels:
     {{- include "redisinsight-chart.labels" . | nindent 4 }}
 spec:
-{{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
-{{- end }}
   strategy:
     type: {{ .Values.updateStrategy }}
   selector:
