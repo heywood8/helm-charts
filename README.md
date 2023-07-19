@@ -16,6 +16,11 @@ helm repo add heywood8 https://heywood8.github.io/helm-charts
 
 You can then run `helm search repo heywood8` to see the charts.
 
+## Helm Charts:
+
+* [Redisinsight](charts/redisinsight/)
+* Coming soon...
+
 ## Contributing
 
 The source code of all [Helm](https://helm.sh) charts can be found on Github: <https://github.com/heywood8/helm-charts/>
