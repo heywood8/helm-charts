@@ -32,9 +32,9 @@ spec:
             path: {{ . }}
             backend:
               service:
-                name: {{ $fullName }}-service
+                name: {{ $fullName }}
                 port:
                   number: {{ $svcPort }}
           {{- end }}
     {{- end }}
-  {{- end }}
+{{- end }}

@@ -5,9 +5,9 @@ metadata:
   labels:
     {{- include "redisinsight-chart.labels" . | nindent 4 }}
 spec:
-{{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
-{{- end }}
+  strategy:
+    type: {{ .Values.updateStrategy }}
   selector:
     matchLabels:
       {{- include "redisinsight-chart.selectorLabels" . | nindent 6 }}
@@ -31,7 +31,7 @@ spec:
         - name: redisinsight
 {{ if .Values.persistentVolumeClaim.create }}
           persistentVolumeClaim:
-            claimName: {{ .Values.persistentVolumeClaim.name }}
+            claimName: {{ include "redisinsight-chart.fullname" . }}-data
 {{ else }}
           emptyDir: {}
 {{ end }}
@@ -41,6 +41,8 @@ spec:
               value: DEBUG
             - name: RITRUSTEDORIGINS
               value: {{ .Values.trustedOrigins }}
+            - name: APP_FOLDER_ABSOLUTE_PATH
+              value: {{ .Values.volumeMount.mountPath }}
           name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
@@ -51,21 +53,14 @@ spec:
               containerPort: {{ .Values.service.port }}
               protocol: TCP
           livenessProbe:
-            tcpSocket:
-              port: http
-            periodSeconds: 10
-            failureThreshold: 2
+            {{- toYaml .Values.livenessProbe | nindent 12 }}
           readinessProbe:
-            tcpSocket:
-              port: http
-            initialDelaySeconds: 30
-            periodSeconds: 10
-            failureThreshold: 2
+            {{- toYaml .Values.readinessProbe | nindent 12 }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
             - name: redisinsight
-              mountPath: /db
+              mountPath: {{ .Values.volumeMount.mountPath }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
