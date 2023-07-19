@@ -53,9 +53,11 @@ ingress:
   annotations: {}
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
+  pathType: ImplementationSpecific
   hosts:
     - host: redis.example.local
       paths: []
+      pathType: ImplementationSpecific
   tls: []
   #  - secretName: example-tls
   #    hosts:
