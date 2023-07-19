@@ -3,6 +3,23 @@ entries:
   redisinsight:
   - annotations:
       artifacthub.io/changes: |
+        - Fixed "nil pointer evaluating interface {}.enabled" in deployment template
+    apiVersion: v2
+    appVersion: 2.28.0
+    created: "2023-07-19T10:29:29.299442306Z"
+    description: A Redisinsight Helm chart for kubernetes
+    digest: 9677f8049b0827791aeba5fa2520a1fa7f93dbc3f6a962e40690ccb0952f8853
+    icon: https://avatars.githubusercontent.com/u/87389211
+    maintainers:
+    - email: lopatinik@yandex.ru
+      name: heywood8
+    name: redisinsight
+    type: application
+    urls:
+    - https://github.com/heywood8/helm-charts/releases/download/redisinsight-0.4.3/redisinsight-0.4.3.tgz
+    version: 0.4.3
+  - annotations:
+      artifacthub.io/changes: |
         - This is the first version with Changelog
         - Removed HPA as it is not fully tested
         - Set default tag version to none -> default now is chart appVersion
@@ -74,4 +91,4 @@ entries:
     urls:
     - https://github.com/heywood8/helm-charts/releases/download/redisinsight-0.2.1/redisinsight-0.2.1.tgz
     version: 0.2.1
-generated: "2023-07-13T14:19:13.917389508Z"
+generated: "2023-07-19T10:29:29.299466006Z"
