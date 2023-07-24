@@ -3,6 +3,23 @@ entries:
   postgres-backup-local:
   - annotations:
       artifacthub.io/changes: |
+        - Updated default image tag
+        - Added usage of serviceAccount in statefulset
+    apiVersion: v2
+    appVersion: v0.1.5
+    created: "2023-07-24T10:15:16.267020566Z"
+    description: Backup postgres database on kubernetes persistent volume claim
+    digest: 43bcd778e33fe8788e0ee082b4093d69fe0d0546fa26caca1d65872238d1172d
+    maintainers:
+    - email: lopatinik@yandex.ru
+      name: heywood8
+    name: postgres-backup-local
+    type: application
+    urls:
+    - https://github.com/heywood8/helm-charts/releases/download/postgres-backup-local-0.1.7/postgres-backup-local-0.1.7.tgz
+    version: 0.1.7
+  - annotations:
+      artifacthub.io/changes: |
         - Resources (requests/limits) support
         - Service Account creation support
     apiVersion: v2
@@ -126,4 +143,4 @@ entries:
     urls:
     - https://github.com/heywood8/helm-charts/releases/download/redisinsight-0.2.1/redisinsight-0.2.1.tgz
     version: 0.2.1
-generated: "2023-07-24T10:00:02.57256182Z"
+generated: "2023-07-24T10:15:16.267040867Z"
