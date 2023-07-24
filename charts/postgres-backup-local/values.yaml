@@ -22,7 +22,7 @@ image:
   pullSecrets: []
 
 auth:
-  #existingPasswordSecret: ""
+  # existingPasswordSecret: ""
   postgres_user: changeMe
   postgres_password: changeMe
 config:
