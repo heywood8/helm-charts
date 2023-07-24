@@ -98,9 +98,4 @@ serviceAccount:
   annotations: {}
   automountServiceAccountToken: false
 
-resources:
-  limits:
-    memory: 100Mi
-  requests:
-    cpu: 1m
-    memory: 100Mi
+resources: {}
