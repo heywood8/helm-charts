@@ -2,6 +2,8 @@
 
 # postgres-backup-local
 
+* Based on [duck-helm/postgres-backup-local](https://github.com/ducksify/duck-helm/tree/main/charts/postgres-backup-local)
+
 Backup PostgresSQL to the local filesystem with periodic rotating backups, based
 on [schickling/postgres-backup-s3](https://hub.docker.com/r/schickling/postgres-backup-s3/). Backup multiple databases
 from the same host by setting the database names in `POSTGRES_DB` separated by commas or spaces.
