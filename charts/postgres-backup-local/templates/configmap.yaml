@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ template "postgres-backup-local.fullname" . }}
+  labels:
+  {{- include "postgres-backup-local.labels" . | nindent 4 }}
+data:
+    POSTGRES_HOST: {{ .Values.config.postgres_host }}
+    POSTGRES_PORT:  {{ .Values.config.postgres_port | quote}}
+    POSTGRES_DB: {{ .Values.config.postgres_db }}
+    POSTGRES_EXTRA_OPTS: {{ .Values.config.postgres_extra_opts |quote }}
+    SCHEDULE: {{ .Values.config.schedule | quote }}
+    BACKUP_KEEP_DAYS: {{ .Values.config.backup_keep_days | quote}}
+    BACKUP_KEEP_WEEKS: {{ .Values.config.backup_keep_weeks | quote}}
+    BACKUP_KEEP_MONTHS: {{ .Values.config.backup_keep_months | quote}}
+    HEALTHCHECK_PORT: {{ .Values.config.healthcheck_port | quote}}

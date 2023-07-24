@@ -1,0 +1,18 @@
+apiVersion: v2
+name: postgres-backup-local
+description: Backup postgres database on kubernetes persistent volume claim
+
+type: application
+
+version: 0.1.6
+
+appVersion: v0.1.5
+
+maintainers:
+  - name: heywood8
+    email: lopatinik@yandex.ru
+
+annotations:
+  artifacthub.io/changes: |
+    - Resources (requests/limits) support
+    - Service Account creation support
