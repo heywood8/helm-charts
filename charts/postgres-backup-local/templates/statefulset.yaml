@@ -1,0 +1,75 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ include "postgres-backup-local.fullname" . }}
+spec:
+  selector:
+    matchLabels:
+       {{- include "postgres-backup-local.selectorLabels" . | nindent 6 }}
+  serviceName: {{ include "postgres-backup-local.fullname" . }}
+  replicas: {{ .Values.replicas }}
+  template:
+    metadata:
+      labels:
+        {{- include "postgres-backup-local.labels" . | nindent 8 }}
+    spec:
+      securityContext:
+        fsGroup: 999
+        runAsUser: 999
+        runAsGroup: 999
+        runAsNonRoot: true
+      containers:
+        - name: {{ include "postgres-backup-local.fullname" . }}
+          image: {{ .Values.image.repository }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          livenessProbe:
+            httpGet:
+              port: 8080
+          volumeMounts:
+            - name:  {{ include "postgres-backup-local.fullname" . }}
+              mountPath: {{ .Values.persistence.mountPath  }}
+
+          {{- if .Values.persistence.subPath }}
+              subPath: .Values.persistence.subPath
+          {{- end }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          envFrom:
+            - configMapRef:
+                name: {{ include "postgres-backup-local.fullname" . }}
+            - secretRef:
+                 {{- if  not .Values.auth.existingPasswordSecret }}
+                name: {{ include "postgres-backup-local.fullname" . }}
+                {{ else }}
+                name: {{- .Values.auth.existingPasswordSecret  }}
+                {{ end }}
+      volumes:
+  {{- if not .Values.persistence.enabled }}
+        - name:  {{ include "postgres-backup-local.fullname" . }}
+          emptyDir: { }
+  {{- else if .Values.persistence.existingClaim }}
+        - name:  {{ include "postgres-backup-local.fullname" . }}
+          persistentVolumeClaim:
+            {{- with .Values.persistence.existingClaim }}
+            claimName: {{ tpl . $ }}
+            {{- end }}
+  {{- else }}
+  volumeClaimTemplates:
+    - metadata:
+        name:  {{ include "postgres-backup-local.fullname" . }}
+        labels:
+        {{- include "postgres-backup-local.labels" . | nindent 10 }}
+        {{ if .Values.persistence.annotations }}
+        annotations:
+        {{- toYaml .Values.persistence.annotations | nindent 10 }}
+        {{ end }}
+      spec:
+        accessModes:
+          - {{ .Values.persistence.accessMode | quote }}
+        resources:
+          requests:
+            storage: {{ .Values.persistence.size | quote }}
+        {{-  if ne .Values.persistence.storageClass "" }}
+        storageClassName: {{ .Values.persistence.storageClass }}
+       {{ end }}
+  {{- end }}
