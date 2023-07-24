@@ -3,6 +3,22 @@ entries:
   postgres-backup-local:
   - annotations:
       artifacthub.io/changes: |
+        - fixed wrong chart name in templates
+    apiVersion: v2
+    appVersion: v0.1.5
+    created: "2023-07-24T10:22:33.21548522Z"
+    description: Backup postgres database on kubernetes persistent volume claim
+    digest: 314b21349edaafdb144f882c053654029237e9a6f605a48d5501ea07a7c7a67f
+    maintainers:
+    - email: lopatinik@yandex.ru
+      name: heywood8
+    name: postgres-backup-local
+    type: application
+    urls:
+    - https://github.com/heywood8/helm-charts/releases/download/postgres-backup-local-0.1.9/postgres-backup-local-0.1.9.tgz
+    version: 0.1.9
+  - annotations:
+      artifacthub.io/changes: |
         - Removed default resources
     apiVersion: v2
     appVersion: v0.1.5
@@ -159,4 +175,4 @@ entries:
     urls:
     - https://github.com/heywood8/helm-charts/releases/download/redisinsight-0.2.1/redisinsight-0.2.1.tgz
     version: 0.2.1
-generated: "2023-07-24T10:18:06.162782133Z"
+generated: "2023-07-24T10:22:33.215514622Z"
