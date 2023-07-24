@@ -4,7 +4,7 @@ description: Backup postgres database on kubernetes persistent volume claim
 
 type: application
 
-version: 0.1.8
+version: 0.1.9
 
 appVersion: v0.1.5
 
@@ -14,4 +14,4 @@ maintainers:
 
 annotations:
   artifacthub.io/changes: |
-    - Removed default resources
+    - fixed wrong chart name in templates

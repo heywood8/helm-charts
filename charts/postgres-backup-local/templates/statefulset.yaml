@@ -13,7 +13,7 @@ spec:
       labels:
         {{- include "postgres-backup-local.labels" . | nindent 8 }}
     spec:
-      serviceAccountName: {{ include "redisinsight-chart.serviceAccountName" . }}
+      serviceAccountName: {{ include "postgres-backup-local.serviceAccountName" . }}
       securityContext:
         fsGroup: 999
         runAsUser: 999
