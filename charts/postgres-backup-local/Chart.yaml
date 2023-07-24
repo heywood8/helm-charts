@@ -4,7 +4,7 @@ description: Backup postgres database on kubernetes persistent volume claim
 
 type: application
 
-version: 0.1.6
+version: 0.1.7
 
 appVersion: v0.1.5
 
@@ -14,5 +14,5 @@ maintainers:
 
 annotations:
   artifacthub.io/changes: |
-    - Resources (requests/limits) support
-    - Service Account creation support
+    - Updated default image tag
+    - Added usage of serviceAccount in statefulset
