@@ -95,6 +95,7 @@ persistence:
 
 serviceAccount:
   create: true
+  annotations: {}
   automountServiceAccountToken: false
 
 resources:
