@@ -1,6 +1,7 @@
-![Docker Pulls](https://img.shields.io/docker/pulls/prodrigestivill/postgres-backup-local)
 
 # postgres-backup-local
+
+![Docker Pulls](https://img.shields.io/docker/pulls/prodrigestivill/postgres-backup-local)
 
 * Based on [duck-helm/postgres-backup-local](https://github.com/ducksify/duck-helm/tree/main/charts/postgres-backup-local)
 
