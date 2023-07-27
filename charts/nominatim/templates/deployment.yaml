@@ -101,7 +101,7 @@ spec:
       {{- if .Values.nominatimUi.enabled }}
       initContainers:
          - name: nominatim-ui-download
-           image: "{{ .Values.curl.image.repository }}:{{ .Values.curl.image.tag | default latest }}"
+           image: "{{ .Values.curl.image.repository }}:{{ .Values.curl.image.tag }}"
            workingDir: /nominatim/nominatim-ui
            command:
            - /bin/sh
