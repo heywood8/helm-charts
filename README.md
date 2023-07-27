@@ -20,6 +20,7 @@ You can then run `helm search repo heywood8` to see the charts.
 
 * [Redisinsight](charts/redisinsight/)
 * [Postgres Backup Local](charts/postgres-backup-local/)
+* [Nominatim](charts/nominatim/)
 * Coming soon...
 
 ## Contributing
