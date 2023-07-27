@@ -11,8 +11,8 @@ spec:
       securityContext:
         fsGroup: 2000
       initContainers:
-        - name: "{{ .Values.waitForIt.image.repository }}:{{ .Values.waitForIt.image.tag  }}"
-          image: willwill/wait-for-it
+        - name: wait-for-db
+          image: "{{ .Values.curl.image.repository }}:{{ .Values.curl.image.tag  }}"
           args:
             - {{ include "nominatim.databaseHost" . }}:{{ include "nominatim.databasePort" . }}
 
