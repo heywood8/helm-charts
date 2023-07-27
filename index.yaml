@@ -3,6 +3,31 @@ entries:
   nominatim:
   - annotations:
       artifacthub.io/changes: |
+        - Option to webui download base address
+      repository: heywood8/helm-charts
+    apiVersion: v2
+    appVersion: "4.2"
+    created: "2023-07-27T10:20:53.769034736Z"
+    dependencies:
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      version: 1.17.1
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 11.6.20
+    description: A Helm chart for Kubernetes
+    digest: fc82a249a50b8dbb43e446801db2c767c97ed93f00ff14fc938b0e72fe05dfaf
+    maintainers:
+    - email: lopatinik@yandex.ru
+      name: heywood8
+    name: nominatim
+    type: application
+    urls:
+    - https://github.com/heywood8/helm-charts/releases/download/nominatim-3.10.8/nominatim-3.10.8.tgz
+    version: 3.10.8
+  - annotations:
+      artifacthub.io/changes: |
         - Option to reconfigure curl image repository
         - Option to reconfigure waitforit image repository
       repository: heywood8/helm-charts
@@ -367,4 +392,4 @@ entries:
     urls:
     - https://github.com/heywood8/helm-charts/releases/download/redisinsight-0.2.1/redisinsight-0.2.1.tgz
     version: 0.2.1
-generated: "2023-07-27T08:40:49.168361178Z"
+generated: "2023-07-27T10:20:53.769093637Z"
