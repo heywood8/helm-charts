@@ -12,7 +12,7 @@ spec:
         fsGroup: 2000
       initContainers:
         - name: wait-for-db
-          image: "{{ .Values.curl.image.repository }}:{{ .Values.curl.image.tag  }}"
+          image: "{{ .Values.waitForIt.image.repository }}:{{ .Values.waitForIt.image.tag  }}"
           args:
             - {{ include "nominatim.databaseHost" . }}:{{ include "nominatim.databasePort" . }}
 
