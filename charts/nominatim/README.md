@@ -4,8 +4,6 @@ Based on [robuz/nominatim](https://github.com/robjuz/helm-charts/tree/master/cha
 
 [Nominatim](https://Nominatim.org/) is a tool (an API) to search OSM data by name and address and to generate synthetic addresses of OSM points (reverse geocoding).
 
-
-
 ## TL;DR
 
 ```console
@@ -30,11 +28,13 @@ This chart has been tested to work with NGINX Ingress and cert-manager on top of
 
 ## Installing the Chart
 
-The installation consist of 2 steps
+The installation consist of 2 steps:
+
 1. Initialisation
 2. App deployment
 
 ### Initialisation
+
 Set```nominatimInitialize.enabled: true```
 
 During the initialization, all required data are downloaded and the database is build.
@@ -123,7 +123,7 @@ The command removes all the Kubernetes components associated with the chart and 
 
 | Name                                    | Description                                                  | Value                                                                 |
 |-----------------------------------------|--------------------------------------------------------------|-----------------------------------------------------------------------|
-| `nominatimInitialize.enabled`           | enable/disable init job                                      | `false `                                                              |
+| `nominatimInitialize.enabled`           | enable/disable init job                                      | `false`                                                              |
 | `nominatimInitialize.pbfUrl`            | URL of the pbf file to import                                | `https://download.geofabrik.de/europe/germany/sachsen-latest.osm.pbf` |
 | `nominatimInitialize.importWikipedia`   | If additional Wikipedia/Wikidata rankings should be imported | `false`                                                               |
 | `nominatimInitialize.wikipediaUrl`      | Wikipedia/Wikidata rankings file URL                         | `https://nominatim.org/data/wikimedia-importance.sql.gz`              |
@@ -138,7 +138,7 @@ The command removes all the Kubernetes components associated with the chart and 
 
 | Name                                       | Description                     | Value                |
 | ------------------------------------------ | ------------------------------- | -------------------- |
-| `nominatimReplications.enabled`            | enable/disable replication      | `false `             |
+| `nominatimReplications.enabled`            | enable/disable replication      | `false`             |
 | `nominatimReplications.replicationUrl`     | URL with update information     | `https://download.geofabrik.de/europe/germany/sachsen-updates/` |
 
 ### Nominatim deployment parameters
@@ -175,9 +175,7 @@ The command removes all the Kubernetes components associated with the chart and 
 | `flatnode.size`                            | Persistent Volume size                                     | `100Gi`             |
 | `flatnode.existingClaim`                   | The name of an existing PVC to use for flatnode            | `nil`             |
 
-
 ### Data PVC Parameters
-
 
 | Name                                          | Description                                                | Value             |
 | --------------------------------------------- | -----------------------------------------------------------| ----------------- |
@@ -186,7 +184,6 @@ The command removes all the Kubernetes components associated with the chart and 
 | `datapvc.accessModes`                     | Persistent Volume access modes                             | `[ReadWriteMany]` |
 | `datapvc.size`                            | Persistent Volume size                                     | `100Gi`             |
 | `datapvc.existingClaim`                   | The name of an existing PVC            | `nil`             |
-
 
 ### Database Parameters
 
@@ -222,7 +219,6 @@ The command removes all the Kubernetes components associated with the chart and 
 | `nominatimUi.apacheConfiguration` | Apache Webserver configuration. You have to restart the appserver when you make changes while nominatim is running.                             | see values.yaml |
 | `nominatimUi.configuration`       | Additional Nominatim configuration.                                                                                                             | see values.yaml |
 
-
 ## Configuration and installation details
 
 ### Flatnode support
@@ -249,8 +245,8 @@ externalDatabase.database=mydatabase
 externalDatabase.port=3306
 ```
 
-* Make sure the database does not exist when running the init job. The nominatim tool will create a `nominatim` database for you
-* Make sure the DB user has superuser rights. The nominatim tool will try to enable the postgis extension and will fail otherwise
+- Make sure the database does not exist when running the init job. The nominatim tool will create a `nominatim` database for you
+- Make sure the DB user has superuser rights. The nominatim tool will try to enable the postgis extension and will fail otherwise
 
 #### Using an existing secret to connect to the database
 
@@ -283,6 +279,7 @@ To enable Ingress integration, set `ingress.enabled` to `true`. The `ingress.hos
 If none of the [default styles](https://nominatim.org/release-docs/latest/admin/Import/#filtering-imported-data) satisfies your needs, you can provide your [customized style file](https://nominatim.org/release-docs/latest/customize/Import-Styles/) by setting the `nominatimInitialize.customStyleUrl` value.
 
 Make sure the file is publicly available for init job to download it. [Example](https://raw.githubusercontent.com/osm-search/Nominatim/master/settings/import-street.style)
+
 ### TLS secrets
 
 The chart also facilitates the creation of TLS secrets for use with the Ingress controller, with different options for certificate management.
