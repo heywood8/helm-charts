@@ -15,3 +15,4 @@ maintainers:
 annotations:
   artifacthub.io/changes: |
     - fixed wrong chart name in templates
+  repository: heywood8/helm-charts
