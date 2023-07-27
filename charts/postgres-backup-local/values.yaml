@@ -1,0 +1,101 @@
+image:
+  repository: prodrigestivill/postgres-backup-local
+  tag: 12-alpine-8d72d2d
+
+  ## set to true if you would like to see extra information on logs
+  ## It turns BASH and/or NAMI debugging in the image
+  ##
+  debug: false
+
+  ## Specify a imagePullPolicy
+  ## Defaults to 'Always' if image tag is 'latest', else set to 'IfNotPresent'
+  ## ref: https://kubernetes.io/docs/user-guide/images/#pre-pulling-images
+  ##
+  pullPolicy: IfNotPresent
+  ## Optionally specify an array of imagePullSecrets.
+  ## Secrets must be manually created in the namespace.
+  ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
+  ## Example:
+  ## pullSecrets:
+  ##   - myRegistryKeySecretName
+  ##
+  pullSecrets: []
+
+auth:
+  # existingPasswordSecret: ""
+  postgres_user: changeMe
+  postgres_password: changeMe
+config:
+  postgres_host: ""
+  postgres_port: 5432
+  postgres_db: auth
+  postgres_extra_opts: "-Z6"
+  schedule: "@daily"
+  backup_keep_days: 7
+  backup_keep_weeks: 4
+  backup_keep_months: 6
+  healthcheck_port: 8080
+
+## @param extraEnvVars Extra environment variables to add to RabbitMQ pods
+## E.g:
+## extraEnvVars:
+##   - name: FOO
+##     value: BAR
+##
+extraEnvVars: []
+
+replicas: 1
+
+persistence:
+  ## @param persistence.enabled Enable postgres-backup-local data persistence using PVC
+  ##
+  enabled: false
+
+  ## @param persistence.storageClass PVC Storage Class for postgres-backup-local data volume
+  ## If defined, storageClassName: <storageClass>
+  ## If set to "-", storageClassName: "", which disables dynamic provisioning
+  ## If undefined (the default) or set to null, no storageClassName spec is
+  ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
+  ##   GKE, AWS & OpenStack)
+  ##
+  storageClass: ""
+  ## @param persistence.selector Selector to match an existing Persistent Volume
+  ## selector:
+  ##   matchLabels:
+  ##     app: my-app
+  ##
+  selector: {}
+  ## @param persistence.accessMode PVC Access Mode for postgres-backup-local data volume
+  ##
+  accessMode: ReadWriteOnce
+
+  ## @param persistence.existingClaim Provide an existing PersistentVolumeClaims
+  ## The value is evaluated as a template
+  ## So, for example, the name can depend on .Release or .Chart
+  ##
+  existingClaim: ""
+  ## @param persistence.mountPath The path the volume will be mounted at
+  ## Note: useful when using custom postgres-backup-local images
+  ##
+  mountPath: /data
+  ## @param persistence.subPath The subdirectory of the volume to mount to
+  ## Useful in dev environments and one PV for multiple services
+  ##
+  subPath: ""
+  ## @param persistence.size PVC Storage Request for postgres-backup-local data volume
+  ##
+  size: 8Gi
+
+  ## @param persistence.annotations Persistence annotations. Evaluated as a template
+  ## Example:
+  ## annotations:
+  ##   example.io/disk-volume-type: SSD
+  ##
+  annotations: {}
+
+serviceAccount:
+  create: true
+  annotations: {}
+  automountServiceAccountToken: false
+
+resources: {}
