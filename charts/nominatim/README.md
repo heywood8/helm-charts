@@ -9,8 +9,8 @@ Based on [robuz/nominatim](https://github.com/robjuz/helm-charts/tree/master/cha
 ## TL;DR
 
 ```console
-helm repo add robjuz https://robjuz.github.io/helm-charts/
-helm install nominatim robjuz/nominatim
+helm repo add heywood8 https://robjuz.github.io/helm-charts/
+helm install nominatim heywood8/nominatim
 ```
 
 ## Introduction
