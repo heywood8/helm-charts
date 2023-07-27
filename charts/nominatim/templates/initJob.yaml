@@ -11,14 +11,14 @@ spec:
       securityContext:
         fsGroup: 2000
       initContainers:
-        - name: wait-for-db
+        - name: "{{ .Values.waitForIt.image.repository }}:{{ .Values.waitForIt.image.tag  }}"
           image: willwill/wait-for-it
           args:
             - {{ include "nominatim.databaseHost" . }}:{{ include "nominatim.databasePort" . }}
 
 {{- if .Values.nominatimInitialize.customStyleUrl }}
         - name: download-custom-style
-          image: "{{ .Values.curl.image.repository }}:{{ .Values.curl.image.tag | default 'latest' }}"
+          image: "{{ .Values.curl.image.repository }}:{{ .Values.curl.image.tag  }}"
           workingDir: /nominatim
           volumeMounts:
             - mountPath: /nominatim
@@ -35,7 +35,7 @@ spec:
 
 {{- if .Values.nominatimInitialize.importWikipedia }}
         - name: download-wikipedia
-          image: curlimages/curl
+          image: "{{ .Values.curl.image.repository }}:{{ .Values.curl.image.tag  }}"
           workingDir: /nominatim
           volumeMounts:
             - mountPath: /nominatim
@@ -52,7 +52,7 @@ spec:
 
 {{- if .Values.nominatimInitialize.importGB_Postcode }}
         - name: download-gb-postcode
-          image: curlimages/curl
+          image: "{{ .Values.curl.image.repository }}:{{ .Values.curl.image.tag  }}"
           workingDir: /nominatim
           volumeMounts:
             - mountPath: /nominatim
@@ -69,7 +69,7 @@ spec:
 
 {{- if .Values.nominatimInitialize.importUS_Postcode }}
         - name: download-us-postcode
-          image: curlimages/curl
+          image: "{{ .Values.curl.image.repository }}:{{ .Values.curl.image.tag  }}"
           workingDir: /nominatim
           volumeMounts:
             - mountPath: /nominatim
@@ -85,7 +85,7 @@ spec:
 {{- end }}
 
         - name: download-pbf
-          image: curlimages/curl
+          image: "{{ .Values.curl.image.repository }}:{{ .Values.curl.image.tag  }}"
           workingDir: /nominatim
           volumeMounts:
             - mountPath: /nominatim

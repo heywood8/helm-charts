@@ -42,8 +42,9 @@ commonAnnotations: {}
 commonLabels: {}
 
 waitForIt:
-  image: willwill/wait-for-it
-  tag: latest
+  image:
+    repository: willwill/wait-for-it
+    tag: latest
 
 curl:
   image:
