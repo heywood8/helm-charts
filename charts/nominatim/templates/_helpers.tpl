@@ -126,7 +126,7 @@ pgsql:host={{ include "nominatim.databaseHost" . }};port={{ include "nominatim.d
 {{- end }}
 
 {{- define "nominatim.uiUrl" -}}
-{{- printf "https://github.com/osm-search/nominatim-ui/releases/download/v%s/nominatim-ui-%s.tar.gz" .Values.nominatimUi.version .Values.nominatimUi.version }}
+{{- printf "%s/v%s/nominatim-ui-%s.tar.gz" .Values.nominatimUi.baseURI .Values.nominatimUi.version .Values.nominatimUi.version }}
 {{- end }}
 
 {{/*

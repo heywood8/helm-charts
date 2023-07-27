@@ -83,6 +83,8 @@ nominatim:
 
 nominatimUi:
   enabled: true
+  # added to "/v%s/nominatim-ui-%s.tar.gz"
+  baseURI: https://github.com/osm-search/nominatim-ui/releases/download
   version: 3.2.1
   # apacheConfiguration configures the apache webserver that serves the UI.
   apacheConfiguration: |-
