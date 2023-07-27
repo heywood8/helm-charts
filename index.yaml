@@ -8,6 +8,32 @@ entries:
       repository: heywood8/helm-charts
     apiVersion: v2
     appVersion: "4.2"
+    created: "2023-07-27T08:15:12.535641595Z"
+    dependencies:
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      version: 1.17.1
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 11.6.20
+    description: A Helm chart for Kubernetes
+    digest: af08c3ea01bfebdaf04a770925aee5c168b4b5e0c1b01b3e7ee5c85b6f5d00df
+    maintainers:
+    - email: lopatinik@yandex.ru
+      name: heywood8
+    name: nominatim
+    type: application
+    urls:
+    - https://github.com/heywood8/helm-charts/releases/download/nominatim-3.10.2/nominatim-3.10.2.tgz
+    version: 3.10.2
+  - annotations:
+      artifacthub.io/changes: |
+        - Option to reconfigure curl image repository
+        - Option to reconfigure waitforit image repository
+      repository: heywood8/helm-charts
+    apiVersion: v2
+    appVersion: "4.2"
     created: "2023-07-27T08:03:42.661152345Z"
     dependencies:
     - name: common
@@ -28,6 +54,23 @@ entries:
     - https://github.com/heywood8/helm-charts/releases/download/nominatim-3.10.0/nominatim-3.10.0.tgz
     version: 3.10.0
   postgres-backup-local:
+  - annotations:
+      artifacthub.io/changes: |
+        - fixed wrong chart name in templates
+      repository: heywood8/helm-charts
+    apiVersion: v2
+    appVersion: v0.1.5
+    created: "2023-07-27T08:15:12.694719603Z"
+    description: Backup postgres database on kubernetes persistent volume claim
+    digest: c83a394d6cf060c47a729740ab941dc3fc318c157984cef1dad4ac2e8d0b3d48
+    maintainers:
+    - email: lopatinik@yandex.ru
+      name: heywood8
+    name: postgres-backup-local
+    type: application
+    urls:
+    - https://github.com/heywood8/helm-charts/releases/download/postgres-backup-local-0.1.10/postgres-backup-local-0.1.10.tgz
+    version: 0.1.10
   - annotations:
       artifacthub.io/changes: |
         - fixed wrong chart name in templates
@@ -95,6 +138,24 @@ entries:
     - https://github.com/heywood8/helm-charts/releases/download/postgres-backup-local-0.1.6/postgres-backup-local-0.1.6.tgz
     version: 0.1.6
   redisinsight:
+  - annotations:
+      artifacthub.io/changes: |
+        - Added another pathType support for ingress
+      repository: heywood8/helm-charts
+    apiVersion: v2
+    appVersion: 2.28.0
+    created: "2023-07-27T08:15:12.835670489Z"
+    description: A Redisinsight Helm chart for kubernetes
+    digest: 59f4fb8987c40246a0013c4f52d15cd1042fe4ffb9a863270f2d7d142ffab2fc
+    icon: https://avatars.githubusercontent.com/u/87389211
+    maintainers:
+    - email: lopatinik@yandex.ru
+      name: heywood8
+    name: redisinsight
+    type: application
+    urls:
+    - https://github.com/heywood8/helm-charts/releases/download/redisinsight-0.4.5/redisinsight-0.4.5.tgz
+    version: 0.4.5
   - annotations:
       artifacthub.io/changes: |
         - Added another pathType support for ingress
@@ -202,4 +263,4 @@ entries:
     urls:
     - https://github.com/heywood8/helm-charts/releases/download/redisinsight-0.2.1/redisinsight-0.2.1.tgz
     version: 0.2.1
-generated: "2023-07-27T08:03:42.661183145Z"
+generated: "2023-07-27T08:15:12.835733002Z"
