@@ -15,7 +15,7 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 3.10.7
+version: 3.10.8
 
 # This is the version number of the application being deployed. This version number should be
 # incremented each time you make changes to the application. Versions are not expected to
@@ -38,6 +38,5 @@ maintainers:
 
 annotations:
   artifacthub.io/changes: |
-    - Option to reconfigure curl image repository
-    - Option to reconfigure waitforit image repository
+    - Option to webui download base address
   repository: heywood8/helm-charts
