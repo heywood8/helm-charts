@@ -185,6 +185,24 @@ entries:
   postgres-backup-local:
   - annotations:
       artifacthub.io/changes: |
+        - added readinessProbe
+        - use port name for probes
+      repository: heywood8/helm-charts
+    apiVersion: v2
+    appVersion: v0.1.5
+    created: "2023-08-15T10:38:39.517442255Z"
+    description: Backup postgres database on kubernetes persistent volume claim
+    digest: 1d1b6887d6c7c5c27520ce9cbf0a376e6ec8a404981d9cc523c6e38f650540ff
+    maintainers:
+    - email: lopatinik@yandex.ru
+      name: heywood8
+    name: postgres-backup-local
+    type: application
+    urls:
+    - https://github.com/heywood8/helm-charts/releases/download/postgres-backup-local-0.1.12/postgres-backup-local-0.1.12.tgz
+    version: 0.1.12
+  - annotations:
+      artifacthub.io/changes: |
         - Image tag support
       repository: heywood8/helm-charts
     apiVersion: v2
@@ -409,4 +427,4 @@ entries:
     urls:
     - https://github.com/heywood8/helm-charts/releases/download/redisinsight-0.2.1/redisinsight-0.2.1.tgz
     version: 0.2.1
-generated: "2023-08-15T10:30:36.914600278Z"
+generated: "2023-08-15T10:38:39.51777796Z"
