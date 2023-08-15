@@ -4,7 +4,7 @@ description: Backup postgres database on kubernetes persistent volume claim
 
 type: application
 
-version: 0.1.10
+version: 0.1.11
 
 appVersion: v0.1.5
 
@@ -14,5 +14,5 @@ maintainers:
 
 annotations:
   artifacthub.io/changes: |
-    - fixed wrong chart name in templates
+    - Image tag support
   repository: heywood8/helm-charts
