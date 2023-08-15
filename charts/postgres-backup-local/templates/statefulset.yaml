@@ -26,6 +26,9 @@ spec:
           livenessProbe:
             httpGet:
               name: 8080
+          readinessProbe:
+            httpGet:
+              name: 8080
           ports:
             - name: http
               containerPort: 8080
