@@ -4,7 +4,7 @@ description: Backup postgres database on kubernetes persistent volume claim
 
 type: application
 
-version: 0.1.12
+version: 0.1.13
 
 appVersion: v0.1.5
 
@@ -14,6 +14,5 @@ maintainers:
 
 annotations:
   artifacthub.io/changes: |
-    - added readinessProbe
-    - use port name for probes
+    - fix port name for probes
   repository: heywood8/helm-charts
