@@ -14,5 +14,6 @@ maintainers:
 
 annotations:
   artifacthub.io/changes: |
-    - Image tag support
+    - added readinessProbe
+    - use port name for probes
   repository: heywood8/helm-charts

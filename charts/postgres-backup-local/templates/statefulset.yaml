@@ -25,7 +25,11 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           livenessProbe:
             httpGet:
-              port: 8080
+              name: 8080
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
           volumeMounts:
             - name:  {{ include "postgres-backup-local.fullname" . }}
               mountPath: {{ .Values.persistence.mountPath  }}
